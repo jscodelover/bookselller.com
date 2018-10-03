@@ -1,0 +1,48 @@
+.textshow{
+    border: 2px solid white;
+    box-shadow: 1px 7px 7px 2px #e4d8d8a6;
+    margin: 250px 0px;
+    width : 75%;
+    min-height : 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color : white;
+    text-shadow: 2px -1px 0px #000000;
+}
+
+// .typewriter{
+//     overflow: hidden; /* Ensures the content is not revealed until the animation */
+//     border-right: .15em solid orange; /* The typwriter cursor */
+//     white-space: nowrap; /* Keeps the content on a single line */
+//     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+//     animation: 
+//       typing 5s steps(40, end),
+//       blink-caret .75s step-end infinite;
+//   }
+  
+//   /* The typing effect */
+//   @keyframes typing {
+//     from { width: 0 }
+//     to { width: 100% }
+//   }
+  
+//   /* The typewriter cursor effect */
+//   @keyframes blink-caret {
+//     from, to { border-color: transparent }
+//     50% { border-color: orange; }
+//   }
+
+@-webkit-keyframes typing { from { width: 0; } }
+@-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
+
+.typewriter { 
+	border-right: .1em solid black;
+	width: 16.5em; 
+	width: 21ch;
+	margin: 2em 1em;
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-animation: typing 4s steps(40, end),
+	           blink-caret .5s step-end infinite alternate;
+}
