@@ -6,63 +6,67 @@ class LoginPage extends Component {
     constructor(props){
         super(props);
         this.typerwriter = React.createRef();
-        this.sentences = [
-            "an Engineer. ",
-            "an Inventor. ",
-            "a Developer. ",
-            "a Web Designer. "
-          ]
+        this.displayText = [
+            "Want to sell your old book ?",
+            "Want to buy second-hand book ?",
+            "STOP HERE !!!",
+            "Its right place for selling and buying old books."
+          ];
+        this.counter = 0;  
     }
+
     componentDidMount(){
         this.loop();
     }
-    write (obj, sentence, i, cb) {
-        if (i != sentence.length) {
-          setTimeout(function () {
+
+    write = (obj, sentence, i, cb) =>{
+        if (i !== sentence.length) {
+          setTimeout(() => {
             i++
             console.log('in timeout', i)
-            obj.innerHTML = sentence.substr(0, i+1) +' <em aria-hidden="true"></em>';
-            write(obj, sentence, i, cb)
+            obj.innerHTML = sentence.substr(0, i+1);
+            this.write(obj, sentence, i, cb)
           }, 50)
         } else {
           console.log(i)
           cb()
         }
-      }
-    erase (obj, cb,i) {
-       var sentence = obj.innerText
-          if (sentence.length != 0) {
-           setTimeout(function () {
-           sentence = sentence.substr(0,sentence.length-1)
-           console.log('in timeout', i)
-           obj.innerText = sentence
-           erase(obj, cb)
+    }
+
+    erase = (obj, cb,i) => {
+        let sentence = obj.innerText
+        if (sentence.length !== 0) {
+            setTimeout(() => {
+                sentence = sentence.substr(0,sentence.length-1)
+                console.log('in timeout', i)
+                obj.innerText = sentence;
+                this.erase(obj, cb)
             }, 18/(i*(i/10000000)))
-            } else {
+        } else {
             obj.innerText = " "
             cb()
-         }
         }
-        var typeline = document.querySelector("#typeline")
+    }
 
-     writeerase(obj, sentence, time, cb) {
-          write(obj, sentence, 0, function () {
-           setTimeout(function () {
-           erase(obj, cb) }, time) })
+    writeerase = (obj, sentence, time, cb) => {
+        this.write(obj, sentence, 0, ()=>{
+            setTimeout(() => {
+            this.erase(obj, cb) }, time) 
+        })
     }
 
 
-    function loop () {
-        var counter = 0;
-        var sentence = sentences[counter % sentences.length]
-        writeerase(typeline, sentence, 1500, loop)
-        counter++
-      }
-    render() {
+    loop = () => {
+        let sentence = this.displayText[this.counter % this.displayText.length]
+        this.writeerase(this.typerwriter.current, sentence, 2000, this.loop)
+        this.counter++;
+    }
+    
+      render() {
         return (
-        <div className="textshow">
-            <h2 className="" ref={this.typerwriter}> testing ka hs gtrs hsi hsn bsh </h2>
-        </div>
+            <div className="textshow">
+                <span ref={this.typerwriter}></span>
+            </div>
         );
     }
 }

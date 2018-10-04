@@ -4,17 +4,22 @@ import Background from '../components/Background';
 import Img from '../components/Logo';
 import logo from '../image/logo.png';
 import TextShow from '../components/TextShow';
+import Button from '../components/Button';
+import Div from '../components/DivFlex';
 import './LoginPage.scss';
 
 class LoginPage extends Component {
   render() {
     return (
       <Background>
-        <div className="enterPage">
+        <Div>
           <Img className="logo" src={logo} alt="BookSeller.com" />
           <TextShow />
-          
-        </div>
+          <Div className="btn-section">
+            <Button>Guest</Button>
+            <Button>Login/SignUp</Button>
+          </Div>  
+        </Div>
       </Background>
     );
   }
