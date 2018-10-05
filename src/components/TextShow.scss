@@ -16,11 +16,11 @@
 
 
 span{
-	border-right: .1em solid black;
+	border-right: .1em solid #ce666f;
     font-size: 350%;
     overflow: hidden;
 	animation: typing 3s steps(16, end),
-    blink-caret .5s step-end infinite alternate;
+    blink-caret .3s step-end infinite alternate;
     @media screen and (max-width : 975px){
         border-right: none;
         font-size: 220%;

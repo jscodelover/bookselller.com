@@ -1,11 +1,15 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import LoginPage from './container/LoginPage';
+import LoginPage from './components/EntryPage';
+import Home from './container/Home';
 
 export default function App(){
     return (
-        <Route exact path="/" component={LoginPage} />
+        <div>
+            <Route path="/bookseller" component={LoginPage} />
+            <Route path="/home" component={Home} />
+        </div>    
     );
 }
 

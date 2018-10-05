@@ -12,6 +12,7 @@ const StyledButton = styled.button`
     font-family: inherit;
     font-size: 30px;
     border-radius: 3px;
+    min-height: auto;
     cursor: pointer;
     box-shadow: 0 5px 0px #c54b55;
     border-bottom: 2px solid #c54b55;

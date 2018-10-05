@@ -13,32 +13,36 @@ class LoginPage extends Component {
             "Its right place for selling and buying old books."
           ];
         this.counter = 0;  
+        this.setTime = [];
     }
 
     componentDidMount(){
         this.loop();
     }
 
+    componentWillUnmount(){
+        clearTimeout(this.setTime[0]);
+        clearTimeout(this.setTime[1]);
+        clearTimeout(this.setTime[2]);
+    }
     write = (obj, sentence, i, cb) =>{
         if (i !== sentence.length) {
-          setTimeout(() => {
-            i++
-            console.log('in timeout', i)
-            obj.innerHTML = sentence.substr(0, i+1);
-            this.write(obj, sentence, i, cb)
-          }, 50)
+            this.setTime[2] = setTimeout(() => {
+                i++;
+                obj.innerHTML = sentence.substr(0, i+1);
+                this.write(obj, sentence, i, cb)
+            }, 50)
         } else {
-          console.log(i)
-          cb()
+            console.log(i)
+            cb()
         }
     }
 
     erase = (obj, cb,i) => {
         let sentence = obj.innerText
         if (sentence.length !== 0) {
-            setTimeout(() => {
+            this.setTime[1] = setTimeout(() => {
                 sentence = sentence.substr(0,sentence.length-1)
-                console.log('in timeout', i)
                 obj.innerText = sentence;
                 this.erase(obj, cb)
             }, 18/(i*(i/10000000)))
@@ -50,8 +54,9 @@ class LoginPage extends Component {
 
     writeerase = (obj, sentence, time, cb) => {
         this.write(obj, sentence, 0, ()=>{
-            setTimeout(() => {
-            this.erase(obj, cb) }, time) 
+            this.setTime[0] =  setTimeout(() => { 
+                                this.erase(obj, cb) 
+                            }, time) 
         })
     }
 
