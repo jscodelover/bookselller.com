@@ -1,0 +1,25 @@
+
+.box {
+    position: fixed;
+    z-index: 500;
+    background-color: #8a343aeb;
+    width: 500px;
+    border: 1px solid #e85f5f;
+    box-shadow: 3px 7px 7px 0px #ab7171;
+    padding: 16px;
+    font-size : 120%;
+    height: 50%;
+    border-radius: 5px;
+    left: calc(50% - 250px);
+    top: 20%;
+    box-sizing: border-box;
+    transition: all 0.4s ease-out;
+    transform: translateY(0);
+    opacity: 1;
+
+    @media (max-width: 600px) {
+        left: 15%;
+        font-size: 100%;
+        width: 70%;
+    }
+}

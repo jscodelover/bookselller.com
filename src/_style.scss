@@ -1,0 +1,11 @@
+
+@mixin btn($width, $size, $width_small, $size_small){
+    button{
+        width: $width;
+        font-size: $size;
+    }
+    @media (max-width:975px){
+        width: $width_small;
+        font-size: $size_small;
+    }
+}

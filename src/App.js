@@ -1,15 +1,15 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
-import LoginPage from './components/EntryPage';
+import LoginPage from './module/components/EntryPage';
 import Home from './container/Home';
 
 export default function App(){
     return (
-        <div>
+        <Switch>
             <Route path="/bookseller" component={LoginPage} />
             <Route path="/home" component={Home} />
-        </div>    
+        </Switch>    
     );
 }
 

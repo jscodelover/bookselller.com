@@ -1,3 +1,5 @@
+@import "../../style";
+
 .logo{
     width:28%;
     margin-top : 12px;
@@ -25,4 +27,5 @@
     flex-direction: row;
     justify-content: space-evenly;
     min-width: 100%;
+    @include btn($width:210px, $size:30px, $width_small:150px, $size_small:20px);
 }

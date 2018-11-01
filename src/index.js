@@ -6,7 +6,7 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const app = <BrowserRouter><App /></BrowserRouter>
+const app = <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}><App /></BrowserRouter>
 
 ReactDOM.render(app, document.getElementById('root'));
 
