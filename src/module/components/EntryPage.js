@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import Background from '../../components/Background';
 import Img from '../../components/Logo';
-import logo from '../image/logo.png';
+import logo from '../../image/logo.png';
 import TextShow from './TextShow';
 import Button from '../../components/Button';
 import DivFlex from '../../components/DivFlex';

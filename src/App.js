@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import LoginPage from './module/components/EntryPage';
-import Home from './container/Home';
+import Home from './module/container/Home';
 
 export default function App(){
     return (
